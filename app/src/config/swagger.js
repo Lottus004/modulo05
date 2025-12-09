@@ -14,7 +14,7 @@ const options = {
         description: "Ambiente de desenvolvimento",
       },
       {
-        url: "https://gerenciador-de-tarefas-api-node.onrender.com/",
+        url: "https://modulo05.onrender.com/",
         description: "Ambiente de produção",
       },
     ],
@@ -38,3 +38,4 @@ const options = {
 
 const specs = swaggerJsdoc(options);
 export default specs;
+
