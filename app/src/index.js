@@ -17,6 +17,12 @@ import comentariosRoutes from "./routes/comentariosRoutes.js";
 
 dotenv.config();
 
+app.use(cors({
+  origin: ["https://modulo05.onrender.com", "*"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
