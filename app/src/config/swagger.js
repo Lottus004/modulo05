@@ -1,41 +1,11 @@
-import swaggerJsdoc from "swagger-jsdoc";
-
+import swaggerJsdoc from 'swagger-jsdoc';
+const serverUrl = process.env.SWAGGER_SERVER || `http://localhost:${process.env.PORT || 3000}`;
 const options = {
   definition: {
-    openapi: "3.0.0",
-    info: {
-      title: "API de Tarefas com MongoDB",
-      version: "1.0.0",
-      description: "Documentação da API de Tarefas com MongoDB",
-    },
-    servers: [
-      {
-        url: "http://localhost:3000",
-        description: "Ambiente de desenvolvimento",
-      },
-      {
-        url: "https://modulo05.onrender.com/",
-        description: "Ambiente de produção",
-      },
-    ],
-    components: {
-      securitySchemes: {
-        bearerAuth: {
-          type: "http",
-          scheme: "bearer",
-          bearerFormat: "JWT",
-        },
-      },
-    },
-    security: [
-      {
-        bearerAuth: [],
-      },
-    ],
+    openapi: '3.0.0',
+    info: { title: 'API de Tarefas', version: '1.0.0' },
+    servers: [{ url: serverUrl }]
   },
-  apis: ["./src/routes/*.js"], // Caminho para os arquivos de rotas
+  apis: ['./src/routes/*.js'],
 };
-
-const specs = swaggerJsdoc(options);
-export default specs;
-
+export default swaggerJsdoc(options);
